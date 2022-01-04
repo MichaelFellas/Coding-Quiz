@@ -12,10 +12,11 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    justify-content: center;
 }
 
 .box1 {
-    flex-basis: 14%;
+    flex-basis: 20%;
     border: 1px white solid;
     justify-content: center;
     display: flex;
@@ -35,7 +36,7 @@
     align-items: center;
     }
 
-.questionBox {
+#questionBox {
     flex-basis: 25%;
     width: 75%;
     background-color: white;
@@ -45,14 +46,19 @@
     display: flex;
     flex: 1 0;
 }
-.questionBox h2 {
+#questionBox h2 {
     background-color: inherit;
     color: black;
     font-size: 50px;
 
 }
 
-.button {
+#timer {
+    color: white;
+
+}
+
+#button1, #button2, #button3, #button4 {
     width: 65%;
     background-color: white;
     flex-basis: 15%;
@@ -67,7 +73,7 @@
     flex: 1 0; 
 }
 
-.button:hover {
+#button1:hover, #button2:hover, #button3:hover, #button4:hover {
     color:rgb(255, 255, 255);
     background-color: rgb(133, 133, 133);
     border-radius: 5px;
