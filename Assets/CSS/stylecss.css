@@ -55,10 +55,15 @@
 
 #timer {
     color: white;
+    font-size: 50px;
 
 }
 
-#button1, #button2, #button3, #button4 {
+#questions {
+    text-decoration: bold;
+}
+
+.button{
     width: 65%;
     background-color: white;
     flex-basis: 15%;
@@ -66,6 +71,7 @@
     color: rgb(0, 0, 0);
     text-align: center;
     padding-top: 10px;
+    padding-bottom: 10px;
     display: inline;
     line-height: 100%;
     font-size: 35px;
@@ -73,7 +79,7 @@
     flex: 1 0; 
 }
 
-#button1:hover, #button2:hover, #button3:hover, #button4:hover {
+.button:hover {
     color:rgb(255, 255, 255);
     background-color: rgb(133, 133, 133);
     border-radius: 5px;
@@ -92,8 +98,9 @@
     background-color: inherit;
     color: white;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 35px;
     padding: 10px;
+    border-radius: 5px;
 }
 
 .buttonTwo:hover {

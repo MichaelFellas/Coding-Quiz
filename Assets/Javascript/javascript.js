@@ -1,43 +1,46 @@
 //Javascript for Code Quiz//
 
+//Variables // 
 var questionNumber = [0,1,2,3,4,5,6,7,8,9]
-var question = ["Question 1","Question 2", "Question 3","Question 4", "Question 5","Question 6", "Question 7", "Question 8", "Question 9", "Question 10"];
-var answerA = ["Answer 1","Answer 1", "Answer 1","Answer 1", "Answer 1","Answer 1", "Answer 1", "Answer 1", "Answer 1", "Answer 1"];
-var answerB = ["Answer 2","Answer 2", "Answer 2","Answer 2", "Answer 2","Answer 2", "Answer 2", "Answer 2", "Answer 2", "Answer 2"];
-var answerC = ["Answer 3","Answer 3", "Answer 3","Answer 3", "Answer 3","Answer 3", "Answer 3", "Answer 3", "Answer 3", "Answer 3"];
-var answerD = ["Answer 4","Answer 4", "Answer 4","Answer 4", "Answer 4","Answer 4", "Answer 4", "Answer 4", "Answer 4", "Answer 4"];
-var randomChoice = "";
+var question = ["Which direction does a CSS cascade?","Which CSS selector is global?", "Which language allows you to build a webpage layout?","How do you attach a child to a parent in Javascript?", "Which language is used to make a website with a timer","What does js mean?", "Which display element is variable?", "What data type is 7?", "Where is padding located?", "Which coding language shares a name with a superhero?"];
+var answerA = ["Up","//", "CSS","stopPropogation", "HTML","Java", "Div", "Number", "Between the border of an element and other elements", "Groot"];
+var answerB = ["Left",".", "HTML","textContent", "Javascript","Javascript", "Inline", "Boolean", "Between the elements content and its border", "Fast API"];
+var answerC = ["Right","*", "Python","getElementById", "CSS","jQuery", "Block", "Character", "It's another name for Border", "Flash"];
+var answerD = ["Down","#", "Javascript","append", "All of the above","JavaQueryScript", "FLexbox", "Undefined", "Outside of the margin", "Python"];
 var timerEl = document.getElementById('timer');
-var answerKey =["Answer 4","Answer 3", "Answer 2","Answer 4", "Answer 1","Answer 2", "Answer 4", "Answer 1", "Answer 2", "Answer 3"]
-var buttl = document.getElementById('button1');
-var butt2 = document.getElementById('button2');
-var butt3 = document.getElementById('button3');
-var butt4 = document.getElementById('button4');
-var questionText = document.getElementById('questions')
+var answerKey =["Answer 4","Answer 3", "Answer 2","Answer 4", "Answer 4","Answer 2", "Answer 4", "Answer 1", "Answer 2", "Answer 3"]
+var reset = document.querySelector(".buttonTwo")
+var correct = '0'
+var timeRemaining = '';
 
+//Confirm prompt to start the game//
 if (confirm("Would you like to play the Coding Quiz?") == true) {
     countdown();
 }
 
-function loadQuestions () {
-   
-    questionText.textContent = question[randomChoice]; 
-    buttl.innerHTML = answerA[randomChoice];
-    butt2.textContent = answerB[randomChoice];
-    butt3.textContent = answerC[randomChoice];
-    butt4.textContent = answerD[randomChoice]; 
+//loads the questions based on array text and prints them to buttons //
+function loadQuestions () {  
+   document.getElementById("#answer-display-1").innerHTML = answerA[globalThis.randomChoice];
+   document.getElementById("#answer-display-2").innerHTML = answerB[globalThis.randomChoice]; 
+   document.getElementById("#answer-display-3").innerHTML = answerC[globalThis.randomChoice]; 
+   document.getElementById("#answer-display-4").innerHTML = answerD[globalThis.randomChoice]; 
+   document.getElementById("questions").textContent = question[globalThis.randomChoice]; 
 }
 
+//Picks random number for questions//
 function randomNumber () {
+    var randomChoice = "";
     var randomChoice = questionNumber[Math.floor(Math.random ()*questionNumber.length)];
+    globalThis.randomChoice = randomChoice;
     index = questionNumber.indexOf(randomChoice)
     if (index > -1) {
-        questionNumber.splice(index,1);
+        questionNumber.splice(index,1);        
     }
-
+    
     // Remove these before submission//
 }
 
+//determines if there's more questions to be picked//
 function questionPicker() {
     if (questionNumber.length===0) {
         return; //Link this to highscore page//
@@ -53,8 +56,10 @@ questionPicker ();
 
 loadQuestions ();
 
+//Countdown function//
+
 function countdown() {
-    var timeLeft = 100;
+    var timeLeft = 150;
    
     var timeInterval = setInterval(function () {
       timeLeft--;
@@ -68,29 +73,45 @@ function countdown() {
     },1000);
 }
 
-// const button = document.querySelector('button');
-// addEventListener('click', () => {
-//     var clickedAnswer = 'button'.textContent 
-
-//     console.log (clickedAnswer);
-// })
+//".button".addEventListener('click,')
 
 
-// passwordBtnEl.on('click', function () {
-//     var newPassword = passwordGenerator(15);
-//     passwordBtnEl.text(newPassword);
-//   });
-  
-  
-//   var passwordBtnEl = $('#password-btn');
-//   var passwordDisplayEl = $('#password-display');
-  
-  
-//  HTML <main>
-//   <h1>Password Generator</h1>
-//   <h2>Click on the button to get started!</h2>
-//   <hr/>
-  
-//   <pre class="text-dark bg-light p-5" id="password-display">Password will go here...</pre>
-//   <button id="password-btn" class="btn btn-block btn-info ">Generate Password</button>
-//   </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Reset Button//
+reset.addEventListener('click', function () {
+    window.location.reload();
+  });
