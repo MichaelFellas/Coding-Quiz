@@ -4,7 +4,7 @@
 var questionNumber = [0,1,2,3,4,5,6,7,8,9]
 var question = ["Which direction does a CSS cascade?","Which CSS selector is global?", "Which language allows you to build a webpage layout?","How do you attach a child to a parent in Javascript?", "Which language is used to make a website with a timer","What does js mean?", "Which display element is variable?", "What data type is 7?", "Where is padding located?", "Which coding language shares a name with a superhero?"];
 var answerA = ["Up","//", "CSS","stopPropogation", "HTML","Java", "Div", "Number", "Between the border of an element and other elements", "Groot"];
-var answerB = ["Left",".", "HTML","textContent", "Javascript","Javascript", "Inline", "Boolean", "Between the elements content and its border", "Fast API"];
+var answerB = ["Left",".", "HTML","textContent", "Javascript","Javascript", "Inline", "Boolean", "Between the elements content and its border", "MODOK"];
 var answerC = ["Right","*", "Python","getElementById", "CSS","jQuery", "Block", "Character", "It's another name for Border", "Flash"];
 var answerD = ["Down","#", "Javascript","append", "All of the above","JavaQueryScript", "Flexbox", "Undefined", "Outside of the margin", "Python"];
 var timerEl = document.getElementById('timer');
@@ -45,7 +45,7 @@ function randomNumber () {
     if (index > -1) {
         questionNumber.splice(index,1);        
     }
-    
+    loadQuestions ();
     // Remove these before submission//
 }
 
@@ -58,13 +58,14 @@ function questionPicker() {
 
     else {
         randomNumber();
+        
     }
 
 }
 
 questionPicker ();
 
-loadQuestions ();
+
 
 //Countdown function//
 
@@ -88,12 +89,12 @@ clickMe.addEventListener("click", function () {
     if (answerA[globalThis.randomChoice] === answerKey[globalThis.randomChoice]) {
         correct++;
         questionPicker ()
-        loadQuestions ()
+        
     }
     else {
         globalThis.timeLeft = globalThis.timeLeft - 10;
         questionPicker ()
-        loadQuestions ()
+        
     }
     
 });
@@ -103,12 +104,11 @@ clickMe2.addEventListener("click", function () {
     if (answerB[globalThis.randomChoice] === answerKey[globalThis.randomChoice]) {
         correct++;
         questionPicker ()
-        loadQuestions ()
     }
     else {
         globalThis.timeLeft = globalThis.timeLeft - 10;
         questionPicker ()
-        loadQuestions ()
+        
     }
     
 });
@@ -118,12 +118,12 @@ clickMe3.addEventListener("click", function () {
     if (answerC[globalThis.randomChoice] === answerKey[globalThis.randomChoice]) {
         correct++;
         questionPicker ()
-        loadQuestions ()
+        
     }
     else {
         globalThis.timeLeft = globalThis.timeLeft - 10;
         questionPicker ()
-        loadQuestions ()
+        
     }
 });
 
@@ -132,18 +132,18 @@ clickMe4.addEventListener("click", function () {
     if (answerD[globalThis.randomChoice] === answerKey[globalThis.randomChoice]) {
         correct++;
         questionPicker ()
-        loadQuestions ()
+        
     }
     else {
         globalThis.timeLeft = globalThis.timeLeft - 10;
         questionPicker ()
-        loadQuestions ()
+        
     }
     
 });
 
 
-
+// Highscores Function
 function highscores () {
     var timeScore = globalThis.timeLeft;
         document.body.innerHTML = "";
@@ -159,25 +159,23 @@ function highscores () {
     var scoreBox = document.createElement("h3");
     scoreBox.textContent = "HIGHSCORES";
     document.body.appendChild(scoreBox);
-    highScores.sort(Number);
-    var score1 = document.createElement("h4");
-    score1.textContent = "HIGHSCORE 1: " + highScores.keys(correct) ;
-    document.body.appendChild(score1);
-    var score2 = document.createElement("h4");
-    score2.textContent = "HIGHSCORE 2: " + highScores.keys[0] ;
-    document.body.appendChild(score2);
-    var score3 = document.createElement("h4");
-    score3.textContent = "HIGHSCORE 3: " + highScores.keys[0] ;
-    document.body.appendChild(score3);
-    var score4 = document.createElement("h4");
-    score4.textContent = "HIGHSCORE 4: " + highScores.keys[0] ;
-    document.body.appendChild(score4);
-    var score5 = document.createElement("h4");
-    score5.textContent = "HIGHSCORE 5: " + highScores.keys[0] ;    
-    document.body.appendChild(score5);
+    highScores.sort(function(a, b){return b-a});
+
+    for (var i = 0; i < 7; i++) {
+    var score = document.createElement("h4");
+    score.textContent = "HIGHSCORE "+[i+1]+": "+ highScores[i].name + ", " + highScores[i].correctAnswers + " Correct Answers, " + highScores[i].timeRemaining + " seconds left." ;
+    document.body.appendChild(score);
+    }
+
+    console.log(highScores);
+
     var reset2 = document.createElement("Button");
     reset2.textContent = "REPLAY GAME"
     document.body.appendChild(reset2);
+    reset2.setAttribute("style", "display: block; margin-right:auto; margin-left:auto; background-color: inherit; border-radius: 5px; color: white; cursor: pointer; font-size: 35px; padding: 10px;");
+    reset2.addEventListener('click', function () {
+        document.location.reload();
+      });
 }
 
 
