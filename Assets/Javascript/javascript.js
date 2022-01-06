@@ -6,16 +6,25 @@ var question = ["Which direction does a CSS cascade?","Which CSS selector is glo
 var answerA = ["Up","//", "CSS","stopPropogation", "HTML","Java", "Div", "Number", "Between the border of an element and other elements", "Groot"];
 var answerB = ["Left",".", "HTML","textContent", "Javascript","Javascript", "Inline", "Boolean", "Between the elements content and its border", "Fast API"];
 var answerC = ["Right","*", "Python","getElementById", "CSS","jQuery", "Block", "Character", "It's another name for Border", "Flash"];
-var answerD = ["Down","#", "Javascript","append", "All of the above","JavaQueryScript", "FLexbox", "Undefined", "Outside of the margin", "Python"];
+var answerD = ["Down","#", "Javascript","append", "All of the above","JavaQueryScript", "Flexbox", "Undefined", "Outside of the margin", "Python"];
 var timerEl = document.getElementById('timer');
-var answerKey =["Answer 4","Answer 3", "Answer 2","Answer 4", "Answer 4","Answer 2", "Answer 4", "Answer 1", "Answer 2", "Answer 3"]
+var answerKey =["Down","*", "HTML","append", "All of the above","Javascript", "Flexbox", "Number", "Between the elements content and its border", "Flash"]
 var reset = document.querySelector(".buttonTwo")
 var correct = '0'
 var timeRemaining = '';
+var clickMe = document.querySelectorAll(".button")[0]
+var clickMe2 = document.querySelectorAll(".button")[1]
+var clickMe3 = document.querySelectorAll(".button")[2]
+var clickMe4 = document.querySelectorAll(".button")[3]
+var h3;
+var highScores = [];
 
 //Confirm prompt to start the game//
 if (confirm("Would you like to play the Coding Quiz?") == true) {
     countdown();
+}
+else {
+    document.body.innerHTML = ("");
 }
 
 //loads the questions based on array text and prints them to buttons //
@@ -42,8 +51,9 @@ function randomNumber () {
 
 //determines if there's more questions to be picked//
 function questionPicker() {
-    if (questionNumber.length===0) {
-        return; //Link this to highscore page//
+    if (questionNumber.length===0) {        
+        highscores();
+        
     }
 
     else {
@@ -60,24 +70,115 @@ loadQuestions ();
 
 function countdown() {
     var timeLeft = 150;
+    globalThis.timeLeft = timeLeft
    
     var timeInterval = setInterval(function () {
-      timeLeft--;
-      timerEl.textContent = "Time Remaining: " + timeLeft;
+      globalThis.timeLeft--;
+      timerEl.textContent = "Time Remaining: " + globalThis.timeLeft;
   
-      if(timeLeft === 0) {      
-        clearInterval(timeInterval);      
-        displayMessage(); //link to highscores page//
+      if(globalThis.timeLeft === 0) {      
+        highscores();
       }
          
     },1000);
 }
 
-//".button".addEventListener('click,')
+clickMe.addEventListener("click", function () {
+     
+    if (answerA[globalThis.randomChoice] === answerKey[globalThis.randomChoice]) {
+        correct++;
+        questionPicker ()
+        loadQuestions ()
+    }
+    else {
+        globalThis.timeLeft = globalThis.timeLeft - 10;
+        questionPicker ()
+        loadQuestions ()
+    }
+    
+});
+
+clickMe2.addEventListener("click", function () {
+      
+    if (answerB[globalThis.randomChoice] === answerKey[globalThis.randomChoice]) {
+        correct++;
+        questionPicker ()
+        loadQuestions ()
+    }
+    else {
+        globalThis.timeLeft = globalThis.timeLeft - 10;
+        questionPicker ()
+        loadQuestions ()
+    }
+    
+});
+
+clickMe3.addEventListener("click", function () {
+    
+    if (answerC[globalThis.randomChoice] === answerKey[globalThis.randomChoice]) {
+        correct++;
+        questionPicker ()
+        loadQuestions ()
+    }
+    else {
+        globalThis.timeLeft = globalThis.timeLeft - 10;
+        questionPicker ()
+        loadQuestions ()
+    }
+});
+
+clickMe4.addEventListener("click", function () {
+        
+    if (answerD[globalThis.randomChoice] === answerKey[globalThis.randomChoice]) {
+        correct++;
+        questionPicker ()
+        loadQuestions ()
+    }
+    else {
+        globalThis.timeLeft = globalThis.timeLeft - 10;
+        questionPicker ()
+        loadQuestions ()
+    }
+    
+});
 
 
 
-
+function highscores () {
+    var timeScore = globalThis.timeLeft;
+        document.body.innerHTML = "";
+        var initials = prompt("Please enter your initials");
+        var score = {
+            correctAnswers: correct,
+            timeRemaining: timeScore,
+            name: initials,
+        }
+        highScores.push(score);
+        var score = "";
+    globalThis.timeLeft = -1;
+    var scoreBox = document.createElement("h3");
+    scoreBox.textContent = "HIGHSCORES";
+    document.body.appendChild(scoreBox);
+    highScores.sort(Number);
+    var score1 = document.createElement("h4");
+    score1.textContent = "HIGHSCORE 1: " + highScores.keys(correct) ;
+    document.body.appendChild(score1);
+    var score2 = document.createElement("h4");
+    score2.textContent = "HIGHSCORE 2: " + highScores.keys[0] ;
+    document.body.appendChild(score2);
+    var score3 = document.createElement("h4");
+    score3.textContent = "HIGHSCORE 3: " + highScores.keys[0] ;
+    document.body.appendChild(score3);
+    var score4 = document.createElement("h4");
+    score4.textContent = "HIGHSCORE 4: " + highScores.keys[0] ;
+    document.body.appendChild(score4);
+    var score5 = document.createElement("h4");
+    score5.textContent = "HIGHSCORE 5: " + highScores.keys[0] ;    
+    document.body.appendChild(score5);
+    var reset2 = document.createElement("Button");
+    reset2.textContent = "REPLAY GAME"
+    document.body.appendChild(reset2);
+}
 
 
 
@@ -113,5 +214,5 @@ function countdown() {
 
 // Reset Button//
 reset.addEventListener('click', function () {
-    window.location.reload();
+    document.location.reload();
   });
