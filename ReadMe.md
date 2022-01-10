@@ -29,7 +29,7 @@ There are several bugs unfortunately that I have found listed below
 
 ## Secreenshot
 
-![Coding-Quiz-Screenshot](./assets/images/Screenshot.png)
+![Coding-Quiz-Screenshot](./Assets/Images/Screenshot.png)
 
 ## Webpage URL
 [Coding-Quiz-URL](https://michaelfellas.github.io/Coding-Quiz/)
