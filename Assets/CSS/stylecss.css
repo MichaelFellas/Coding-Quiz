@@ -5,7 +5,6 @@
     margin: 0px;
 }
 
-
 .bodyBox {
     width: 100%;
     height: 100%;
@@ -27,7 +26,6 @@
 
 .box2 {
     flex-basis: 70%;
-    border: 1px red solid;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -63,7 +61,7 @@
     text-decoration: bold;
 }
 
-.button{
+.buttonOne {
     width: 65%;
     background-color: white;
     flex-basis: 15%;
@@ -79,7 +77,7 @@
     flex: 1 0; 
 }
 
-.button:hover {
+.buttonOne:hover {
     color:rgb(255, 255, 255);
     background-color: rgb(133, 133, 133);
     border-radius: 5px;
@@ -87,12 +85,12 @@
 
 .box3 {
     flex-basis: 14%;
-    border: 1px white solid;
     justify-content: center;
+    align-content: center;
     display: flex;
     flex: 1 0; 
     padding: 20px;
-    }
+}
 
 .buttonTwo {
     background-color: inherit;
@@ -103,14 +101,31 @@
     border-radius: 5px;
 }
 
+.buttonThree {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-size: 35px;
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
 .buttonTwo:hover {
     color:rgb(255, 255, 255);
     background-color: rgb(133, 133, 133);
     border-radius: 5px;
 }
 
+h1 {
+    text-align: center;
+}
+
 h3 {
- color: red;
+ color: rgb(255, 255, 255);
  font-size: 75px;
  border: white dashed 5px;
  border-radius: 5px;
@@ -124,15 +139,22 @@ h3 {
 }
 
 h4 {
-    color: rgb(60, 128, 255);
+    color: rgb(224, 224, 224);
     font-size: 50px;
     border: white dashed 5px;
     border-radius: 5px;
     padding: 5px;
     text-align: center;
-    margin: 30px;
-    
-
-    
+    margin: 30px;  
+    display: block;
    
+}
+
+.quiz {
+    display: none;
+}
+
+.lander {
+    display: block;
+    font-size: 50px;
 }

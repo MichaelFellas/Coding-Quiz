@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz</title>
-    <link rel="stylesheet" type="text/css" href="./assets//CSS/stylecss.css" />
+    <link rel="stylesheet" type="text/css" href="./assets//css/stylecss.css" />
 </head>
 
 <header>  
@@ -13,31 +13,51 @@
 
 
 <body>  
-    <Section class="bodyBox">
-        <div class="box1">
-            <h1 id="timer">Timer</h1>
-            
+    <Section class="bodyBox quiz">
+       
+        <div class="box1 ">
+            <h1 id="timer">Time Remaining: 150</h1>       
           
 
         </div>
-        <div class ="box2"> 
+        <div class ="box2 "> 
             <questionBox id="questionBox">
                 <h2 id="questions">Question</h2>
             </questionBox>
 
             
-            <button id="#answer-display-1" class="button">Answer A</button>
-            <button id="#answer-display-2" class="button">Answer B</button>
-            <button id="#answer-display-3" class="button">Answer C</button>
-            <button id="#answer-display-4" class="button">Answer D</button>          
+            <button id="#answer-display-1" class="buttonOne">Answer A</button>
+            <button id="#answer-display-2" class="buttonOne">Answer B</button>
+            <button id="#answer-display-3" class="buttonOne">Answer C</button>
+            <button id="#answer-display-4" class="buttonOne">Answer D</button> 
+            <br>
+            <br>
+            <br>         
 
         </div>
+       
         <div class ="box3">
             <button id="#reset-button" class="buttonTwo">RESET</button5>
 
         </div>
     </Section>
-    <script src="./Assets/Javascript/javascript.js"></script>
+    <Section class="bodyBox lander">
+        <div class="box1">
+            <h1>Welcome to the Coding Quiz!</h1>
+        </div>
+        
+        
+        <div class ="box2">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button id="#startGame" class="buttonThree">Start Game</button>
+        </div>
+       
+    </Section>
+    <script src="./assets/javascript/javascript.js"></script>
 </body>
 
 <footer>    
